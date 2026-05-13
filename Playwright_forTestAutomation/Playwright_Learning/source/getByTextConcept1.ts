@@ -1,0 +1,22 @@
+
+import { Browser, chromium, Locator, Page } from "@playwright/test";
+
+(async () => {
+    let browser: Browser = await chromium.launch({ headless: false, channel: 'chrome' });
+    let page: Page = await browser.newPage();
+    await page.goto('https://naveenautomationlabs.com/opencart/index.php?route=account/login');
+
+    //1. getByText
+    await page.getByText('Register Account', { exact: true }).highlight();
+
+    //2. locator + hasText:
+    // locator('h1', { hasText: 'Register Account' })
+    // locator('a', { hasText: 'Privacy Policy' })
+
+    page.locator('h1', { hasText: 'Register Account' }).highlight();
+
+    //3. using tag:text("value") -- webtable with the checkbox
+
+
+
+})();

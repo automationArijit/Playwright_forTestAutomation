@@ -13,6 +13,14 @@ import { Browser, chromium, Locator, Page } from "@playwright/test";
     
     //For: Clicking on the second forget password link:
     await page.getByRole('link', {name:'Forgotten Password'}).nth(1).click(); // give the nth index, index always starts from zero.
+
+    // Come to Registration page:
+    await page.getByRole('link', { name: 'Register' }).click();
+
+    // To get the inner text of the element: use innerText.
+    let innerTextofElement:string = await page.getByRole('textbox', { name: 'First Name' }).innerHTML();
+    console.log(innerTextofElement);
+    
   
     
 })();
